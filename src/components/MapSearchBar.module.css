@@ -1,0 +1,39 @@
+.containerInput {
+  position: relative;
+  align-content: center;
+}
+
+.input {
+  position: absolute;
+  top: 3rem;
+  left: 6rem;
+  z-index: 999;
+  color: black;
+  display: flex;
+  gap: 0.8rem;
+  width: 230px;
+  padding: 10px 0px 10px 15px;
+  border-radius: 9999px;
+  border: solid 1px #333;
+  transition: all .2s ease-in-out;
+  outline: none;
+  opacity: 0.8;
+}
+
+.input::placeholder {
+    color: black;
+    font-style: italic;
+}
+
+/* .containerInput svg {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  background-color: #333;
+  transform: translate(0, -50%);
+} */
+
+.input:focus {
+  opacity: 1;
+  width: 270px;
+}

@@ -1,0 +1,325 @@
+{
+  "cities": [
+    {
+      "cityName": "Nairobi",
+      "country": "Kenya",
+      "date": "2025-07-06T12:10:00.000Z",
+      "emoji": "🇰🇪",
+      "notes": "Safari gateway",
+      "position": {
+        "lat": "-1.286389",
+        "lng": "36.817223"
+      },
+      "population": "4397000",
+      "language": "Swahili, English",
+      "currency": "Kenyan Shilling (KES)",
+      "timezone": "EAT (UTC+3)",
+      "weather": {
+        "temp": 22,
+        "description": "Sunny",
+        "icon": "☀️"
+      },
+      "id": "KEN_NBO"
+    },
+    {
+      "cityName": "Church Creek",
+      "country": "United States of America",
+      "date": "2025-07-06T13:49:24.775Z",
+      "emoji": "🇺🇸",
+      "notes": "Washington",
+      "position": {
+        "lat": "38.4679275464714",
+        "lng": "-76.11328125000001"
+      },
+      "population": "125",
+      "language": "English",
+      "currency": "US Dollar (USD)",
+      "timezone": "EST (UTC-5)",
+      "weather": {
+        "temp": 24,
+        "description": "Clear",
+        "icon": "☀️"
+      },
+      "id": "gWBsiK0"
+    },
+    {
+      "cityName": "Vancouver",
+      "country": "Canada",
+      "date": "2025-07-06T11:57:00.000Z",
+      "emoji": "🇨🇦",
+      "notes": "Beautiful west coast city",
+      "position": {
+        "lat": "49.2827",
+        "lng": "-123.1207"
+      },
+      "population": "675218",
+      "language": "English, French",
+      "currency": "Canadian Dollar (CAD)",
+      "timezone": "PST (UTC-8)",
+      "weather": {
+        "temp": 16,
+        "description": "Cloudy",
+        "icon": "☁️"
+      },
+      "id": "CAN_VAN"
+    },
+    {
+      "cityName": "Buenos Aires",
+      "country": "Argentina",
+      "date": "2025-07-06T11:58:00.000Z",
+      "emoji": "🇦🇷",
+      "notes": "Tango capital",
+      "position": {
+        "lat": "-34.6037",
+        "lng": "-58.3816"
+      },
+      "population": "2890151",
+      "language": "Spanish",
+      "currency": "Argentine Peso (ARS)",
+      "timezone": "ART (UTC-3)",
+      "weather": {
+        "temp": 15,
+        "description": "Clear",
+        "icon": "☀️"
+      },
+      "id": "ARG_BA"
+    },
+    {
+      "cityName": "Lima",
+      "country": "Peru",
+      "date": "2025-07-06T12:04:00.000Z",
+      "emoji": "🇵🇪",
+      "notes": "City of kings",
+      "position": {
+        "lat": "-12.0464",
+        "lng": "-77.0428"
+      },
+      "population": "9750000",
+      "language": "Spanish",
+      "currency": "Peruvian Sol (PEN)",
+      "timezone": "PET (UTC-5)",
+      "weather": {
+        "temp": 19,
+        "description": "Foggy",
+        "icon": "🌫️"
+      },
+      "id": "PER_LIM"
+    },
+    {
+      "cityName": "Rio de Janeiro",
+      "country": "Brazil",
+      "date": "2025-07-06T12:12:00.000Z",
+      "emoji": "🇧🇷",
+      "notes": "Carnival city",
+      "position": {
+        "lat": "-22.9068",
+        "lng": "-43.1729"
+      },
+      "population": "6748000",
+      "language": "Portuguese",
+      "currency": "Brazilian Real (BRL)",
+      "timezone": "BRT (UTC-3)",
+      "weather": {
+        "temp": 27,
+        "description": "Sunny",
+        "icon": "☀️"
+      },
+      "id": "BRA_RIO"
+    },
+    {
+      "cityName": "Thane",
+      "country": "India",
+      "date": "2025-07-06T11:50:42.271Z",
+      "emoji": "🇮🇳",
+      "notes": "Thane",
+      "position": {
+        "lat": "19.20158938636535",
+        "lng": "72.99865722656251"
+      },
+      "population": "1841488",
+      "language": "Marathi, Hindi",
+      "currency": "Indian Rupee (INR)",
+      "timezone": "IST (UTC+5:30)",
+      "weather": {
+        "temp": 32,
+        "description": "Humid",
+        "icon": "🌤️"
+      },
+      "id": "kElOxZg"
+    },
+    {
+      "cityName": "Kyoto",
+      "country": "Japan",
+      "date": "2025-07-06T11:55:00.000Z",
+      "emoji": "🇯🇵",
+      "notes": "Historic capital",
+      "position": {
+        "lat": "35.0116363",
+        "lng": "135.7680294"
+      },
+      "population": "1465000",
+      "language": "Japanese",
+      "currency": "Yen (JPY)",
+      "timezone": "JST (UTC+9)",
+      "weather": {
+        "temp": 25,
+        "description": "Clear",
+        "icon": "☀️"
+      },
+      "id": "JPN_Kyoto"
+    },
+    {
+      "cityName": "Kuala Lumpur",
+      "country": "Malaysia",
+      "date": "2025-07-06T12:09:00.000Z",
+      "emoji": "🇲🇾",
+      "notes": "Twin Towers",
+      "position": {
+        "lat": "3.1390",
+        "lng": "101.6869"
+      },
+      "population": "1790000",
+      "language": "Malay",
+      "currency": "Malaysian Ringgit (MYR)",
+      "timezone": "MYT (UTC+8)",
+      "weather": {
+        "temp": 30,
+        "description": "Thunderstorms",
+        "icon": "⛈️"
+      },
+      "id": "MYS_KUL"
+    },
+    {
+      "cityName": "Seulo",
+      "country": "Italy",
+      "date": "2025-07-06T13:49:06.068Z",
+      "emoji": "🇮🇹",
+      "notes": "Seulo",
+      "position": {
+        "lat": "39.871210301268185",
+        "lng": "9.228515625000002"
+      },
+      "population": "900",
+      "language": "Italian",
+      "currency": "Euro (EUR)",
+      "timezone": "CET (UTC+1)",
+      "weather": {
+        "temp": 28,
+        "description": "Sunny",
+        "icon": "☀️"
+      },
+      "id": "9CUyWzi"
+    },
+    {
+      "cityName": "Prague",
+      "country": "Czech Republic",
+      "date": "2025-07-06T11:59:00.000Z",
+      "emoji": "🇨🇿",
+      "notes": "City of a hundred spires",
+      "position": {
+        "lat": "50.0755",
+        "lng": "14.4378"
+      },
+      "population": "1309000",
+      "language": "Czech",
+      "currency": "Czech Koruna (CZK)",
+      "timezone": "CET (UTC+1)",
+      "weather": {
+        "temp": 20,
+        "description": "Partly Cloudy",
+        "icon": "⛅"
+      },
+      "id": "CZE_PRG"
+    },
+    {
+      "cityName": "Copenhagen",
+      "country": "Denmark",
+      "date": "2025-07-06T12:03:00.000Z",
+      "emoji": "🇩🇰",
+      "notes": "Bikes and canals",
+      "position": {
+        "lat": "55.6761",
+        "lng": "12.5683"
+      },
+      "population": "794128",
+      "language": "Danish",
+      "currency": "Danish Krone (DKK)",
+      "timezone": "CET (UTC+1)",
+      "weather": {
+        "temp": 18,
+        "description": "Rainy",
+        "icon": "🌧️"
+      },
+      "id": "DNK_CPH"
+    },
+    {
+      "cityName": "McMurdo Station",
+      "country": "Antarctica",
+      "date": "2025-07-06T12:13:00.000Z",
+      "emoji": "🇦🇶",
+      "notes": "US research station",
+      "position": {
+        "lat": "-77.846",
+        "lng": "166.676"
+      },
+      "population": "1000 (summer)",
+      "language": "English",
+      "currency": "US Dollar (USD)",
+      "timezone": "NZST (UTC+12)",
+      "weather": {
+        "temp": -25,
+        "description": "Snowing",
+        "icon": "❄️"
+      },
+      "id": "ANT_MCM"
+    },
+    {
+      "cityName": "Mumbai",
+      "country": "India",
+      "date": "2025-07-07T06:30:16.307Z",
+      "emoji": "🇮🇳",
+      "notes": "Mumbai meri jaan ❤️",
+      "position": {
+        "lat": "19.089957136734593",
+        "lng": "72.90802001953126"
+      },
+      "id": "gu78Uss"
+    },
+    {
+      "cityName": "Nashik",
+      "country": "India",
+      "date": "2025-07-07T06:30:39.013Z",
+      "emoji": "🇮🇳",
+      "notes": "Nashikk  ",
+      "position": {
+        "lat": "20.011810304960626",
+        "lng": "73.80065917968751"
+      },
+      "id": "zphPbjk"
+    },
+    {
+      "cityName": "Mumbai",
+      "country": "India",
+      "date": "2025-07-14T05:12:09.388Z",
+      "emoji": "🇮🇳",
+      "notes": "TEST",
+      "position": {
+        "lat": "19.14937163551257",
+        "lng": "72.82656998742192"
+      },
+      "id": "63b-GDf"
+    },
+    {
+      "cityName": "Vilafames",
+      "country": "Spain",
+      "date": "2025-07-14T07:18:27.052Z",
+      "emoji": "🇪🇸",
+      "notes": "heruej",
+      "position": {
+        "lat": "40.14302834574633",
+        "lng": "-0.06729125976562501"
+      },
+      "id": "yaF56d3"
+    }
+  ]
+}

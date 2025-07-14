@@ -1,0 +1,706 @@
+/* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
+@import "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css";
+@import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap";
+
+:root {
+  /* Brand Colors (primary tones) */
+  --color-brand--1: #5A9367;   /* Soft leaf green */
+  --color-brand--2: #52b51d;   /* Mossy olive */
+
+  /* Dark tones for text and UI depth */
+  --color-dark--0: #2F3E46;    /* Deep slate forest */
+  --color-dark--1: #3D4A4E;    /* Muted charcoal green */
+  --color-dark--2: #556B6E;    /* Faded pine/rock */
+
+  /* Light tones for backgrounds and containers */
+  --color-light--1: #F0EFEB;   /* Warm neutral (parchment) */
+  --color-light--2: #E9F5EF;   /* Pale mint (subtle freshness) */
+  --color-light--3: #DDE4DA;   /* Light sage gray */
+
+  /* Shadows & transitions */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+}
+
+.section-searchFilter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3.2rem;
+
+  & .container-card {
+    padding: 0.8rem 2.4rem;
+    background: linear-gradient(71deg, #080509, #1a171c, #080509);
+  }
+
+  & input {
+    font-family: "urbanist";
+    font-size: 1.55rem;
+    font-weight: bold;
+    padding: 0.6rem 2.4rem;
+    border-radius: 5rem;
+    letter-spacing: 0.1rem;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.8);
+    border: 0.05rem solid #fff;
+    background: linear-gradient(71deg, #080509, #1a171c, #080509);
+  }
+
+  & .select-section {
+    background: linear-gradient(71deg, #080509, #1a171c, #080509);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.6rem 2.4rem;
+    border-radius: 5rem;
+    -webkit-border-radius: 5rem;
+    -moz-border-radius: 5rem;
+    -ms-border-radius: 5rem;
+    -o-border-radius: 5rem;
+    font-family: "urbanist";
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    text-transform: capitalize;
+
+    & option {
+      background: linear-gradient(71deg, #080509, #1a171c, #080509);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 0.6rem 2.4rem;
+      border-radius: 5rem;
+    }
+  }
+
+  & .select-section > option {
+    background-color: #080509;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.6rem 2.4rem;
+    border-radius: 5rem;
+    margin-top: 1rem;
+  }
+}
+
+::placeholder {
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-ascDec {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  padding: 0.6rem 2.4rem;
+  text-align: center;
+  outline: none;
+  border: none;
+  text-transform: unset;
+  transition: all 0.3s ease-in-out;
+  background: #202020;
+  color: #fff;
+  border-radius: 1.5rem;
+  /*thisdoesn'twork*/
+  border-width: 0.1rem;
+  border-style: solid;
+  -webkit-border-radius: 1.5rem;
+  -moz-border-radius: 1.5rem;
+  -ms-border-radius: 1.5rem;
+  -o-border-radius: 1.5rem;
+  margin-top: 1.6rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Twemoji Country Flags", "Manrope", sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  background-color: #83898a;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-light--2);
+}
+
+label {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-light--2);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-light--3);
+  transition: var(--transition);
+  color: var(--color-dark--0);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px var(--color-brand--2);
+}
+
+/* Buttons & Links */
+.cta:link,
+.cta:visited {
+  display: inline-block;
+  background-color: var(--color-brand--2);
+  color: var(--color-light--2);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1.2rem 3.2rem;
+  border-radius: 5px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.cta:hover,
+.cta:active {
+  background-color: var(--color-brand--1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+
+
+/* Buttons */
+.btn {
+  color: inherit;
+  text-transform: uppercase;
+  padding: 1.2rem 2rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.primary {
+  background-color: var(--color-brand--2);
+  color: var(--color-light--2);
+}
+
+.primary:hover {
+  background-color: var(--color-brand--1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.back {
+  background: none;
+  border: 2px solid currentColor;
+}
+
+.back:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.position {
+  position: absolute;
+  z-index: 1000;
+  font-size: 1.4rem;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-brand--2);
+  color: var(--color-light--2);
+  box-shadow: var(--shadow-md);
+  padding: 1rem 2rem;
+}
+
+/* City Components */
+.city {
+  padding: 2.5rem;
+  max-height: 70%;
+  background-color: var(--color-dark--2);
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.city h6 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--color-light--1);
+  letter-spacing: 1px;
+}
+
+.city h3 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.city h3 span {
+  font-size: 3.2rem;
+  line-height: 1;
+}
+
+.city p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.city a:link,
+.city a:visited {
+  font-size: 1.6rem;
+  color: var(--color-brand--2);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.city a:hover {
+  color: var(--color-light--2);
+  text-decoration: underline;
+}
+
+.cityItem,
+.cityItem:link,
+.cityItem:visited {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  background-color: var(--color-dark--2);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  border-left: 5px solid var(--color-brand--2);
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.cityItem:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.cityItem--active {
+  border: 2px solid var(--color-brand--2);
+  border-left: 5px solid var(--color-brand--2);
+  background-color: rgba(34, 73, 66, 0.3);
+}
+
+.emoji {
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.name {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-right: auto;
+}
+
+.date {
+  font-size: 1.5rem;
+}
+
+.deleteBtn {
+  height: 2.4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  font-size: 1.6rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteBtn:hover {
+  background-color: #e63946;
+  color: var(--color-light--2);
+  transform: rotate(90deg);
+}
+
+/* Lists */
+.cityList {
+  width: 100%;
+  height: 65vh;
+  list-style: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-right: 0.5rem;
+}
+
+.cityList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cityList::-webkit-scrollbar-track {
+  background: var(--color-dark--1);
+  border-radius: 10px;
+}
+
+.cityList::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand--2);
+  border-radius: 10px;
+}
+
+.countryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  background-color: var(--color-dark--2);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  border-left: 5px solid var(--color-brand--1);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.countryItem:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.countryItem span:first-child {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.countryList {
+  width: 100%;
+  height: 65vh;
+  list-style: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  align-content: start;
+  gap: 1.6rem;
+  padding-right: 0.5rem;
+}
+
+.countryList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.countryList::-webkit-scrollbar-track {
+  background: var(--color-dark--1);
+  border-radius: 10px;
+}
+
+.countryList::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand--2);
+  border-radius: 10px;
+}
+
+/* Form Elements */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.flag {
+  position: absolute;
+  right: 1rem;
+  top: 3.2rem;
+  font-size: 2.8rem;
+}
+
+.form.loading {
+  opacity: 0.5;
+}
+
+.form.loading button {
+  pointer-events: none;
+  background-color: var(--color-light--1);
+  border: 1px solid var(--color-light--1);
+  color: var(--color-dark--0);
+}
+
+/* Leaflet Overrides */
+:global(.leaflet-popup .leaflet-popup-content-wrapper) {
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  border-radius: 8px;
+  padding-right: 0.6rem;
+  box-shadow: var(--shadow-lg);
+}
+
+:global(.leaflet-popup .leaflet-popup-content) {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+:global(.leaflet-popup .leaflet-popup-content span:first-child) {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+:global(.leaflet-popup .leaflet-popup-tip) {
+  background-color: var(--color-dark--1);
+}
+
+:global(.leaflet-popup-content-wrapper) {
+  border-left: 5px solid var(--color-brand--2);
+}
+
+/* Utility Classes */
+.message {
+  text-align: center;
+  font-size: 1.8rem;
+  width: 80%;
+  margin: 2rem auto;
+  font-weight: 600;
+  color: var(--color-light--2);
+}
+
+.logo {
+  height: 5.2rem;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.mapContainer {
+  flex: 1;
+  height: 100%;
+  background-color: var(--color-dark--2);
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.map {
+  height: 100%;
+}
+
+/* User Component */
+.user {
+  position: absolute;
+  top: 4.2rem;
+  right: 4.2rem;
+  background-color: var(--color-dark--1);
+  padding: 1.2rem 1.6rem;
+  border-radius: 8px;
+  z-index: 999;
+  box-shadow: var(--shadow-lg);
+  font-size: 1.6rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.user img {
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  object-fit: cover;
+}
+
+.user button {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  border: none;
+  padding: 0.8rem 1.4rem;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.user button:hover {
+  background-color: var(--color-brand--2);
+  color: var(--color-light--2);
+}
+
+/* Spinner */
+.spinnerContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, var(--color-light--2));
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: rotate 1.5s infinite linear;
+}
+
+.spinnerFullpage {
+  margin: 2.5rem;
+  height: calc(100vh - 5rem);
+  background-color: var(--color-dark--1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 84em) {
+  html {
+    font-size: 56.25%;
+  }
+  
+  .product section {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 75em) {
+  .sidebar {
+    flex-basis: 45rem;
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 62em) {
+  html {
+    font-size: 50%;
+  }
+  
+  .app {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    flex-basis: auto;
+    width: 100%;
+    height: auto;
+    padding: 2.5rem;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .mapContainer {
+    height: 50vh;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .cityList,
+  .countryList {
+    height: 40vh;
+  }
+  
+  .position {
+    bottom: 2rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .homepage,
+  .login,
+  .product {
+    margin: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .homepage h1 {
+    font-size: 3.5rem;
+  }
+  
+  .homepage h2 {
+    font-size: 1.8rem;
+  }
+  
+  .nav ul {
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .user {
+    top: 2rem;
+    right: 2rem;
+    padding: 1rem;
+  }
+  
+  .countryList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 36em) {
+  html {
+    font-size: 45%;
+  }
+  
+  .form {
+    padding: 2rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .countryList {
+    grid-template-columns: 1fr;
+  }
+}
