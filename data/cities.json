@@ -64,27 +64,6 @@
       "id": "CAN_VAN"
     },
     {
-      "cityName": "Buenos Aires",
-      "country": "Argentina",
-      "date": "2025-07-06T11:58:00.000Z",
-      "emoji": "🇦🇷",
-      "notes": "Tango capital",
-      "position": {
-        "lat": "-34.6037",
-        "lng": "-58.3816"
-      },
-      "population": "2890151",
-      "language": "Spanish",
-      "currency": "Argentine Peso (ARS)",
-      "timezone": "ART (UTC-3)",
-      "weather": {
-        "temp": 15,
-        "description": "Clear",
-        "icon": "☀️"
-      },
-      "id": "ARG_BA"
-    },
-    {
       "cityName": "Lima",
       "country": "Peru",
       "date": "2025-07-06T12:04:00.000Z",
@@ -232,27 +211,6 @@
       "id": "CZE_PRG"
     },
     {
-      "cityName": "Copenhagen",
-      "country": "Denmark",
-      "date": "2025-07-06T12:03:00.000Z",
-      "emoji": "🇩🇰",
-      "notes": "Bikes and canals",
-      "position": {
-        "lat": "55.6761",
-        "lng": "12.5683"
-      },
-      "population": "794128",
-      "language": "Danish",
-      "currency": "Danish Krone (DKK)",
-      "timezone": "CET (UTC+1)",
-      "weather": {
-        "temp": 18,
-        "description": "Rainy",
-        "icon": "🌧️"
-      },
-      "id": "DNK_CPH"
-    },
-    {
       "cityName": "McMurdo Station",
       "country": "Antarctica",
       "date": "2025-07-06T12:13:00.000Z",
@@ -320,6 +278,30 @@
         "lng": "-0.06729125976562501"
       },
       "id": "yaF56d3"
+    },
+    {
+      "cityName": "Mumbai",
+      "country": "India",
+      "date": "2025-07-14T12:42:14.670Z",
+      "emoji": "🇮🇳",
+      "notes": "Test",
+      "position": {
+        "lat": "19.088711813937937",
+        "lng": "72.83248901367189"
+      },
+      "id": "MkBP2lk"
+    },
+    {
+      "cityName": "Delhi",
+      "country": "India",
+      "date": "2025-07-14T14:24:30.260Z",
+      "emoji": "🇮🇳",
+      "notes": "test",
+      "position": {
+        "lat": "28.61031492686424",
+        "lng": "77.21397399902344"
+      },
+      "id": "DKHh61o"
     }
   ]
 }
