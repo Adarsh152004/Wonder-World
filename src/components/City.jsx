@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
-// import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useCities } from "../contexts/CitiesContext";
 import Spinner from "./Spinner";
@@ -15,16 +14,18 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
-    const {currentCity, getCity, getFlag, isLoading} = useCities();
-    const {id} = useParams();
+  const { currentCity, getCity, getFlag, isLoading } = useCities();
+  const { id } = useParams();
 
-    useEffect(function() {
-        getCity(id);
-    }, [id]);
+  useEffect(() => {
+    getCity(id);
+  }, [id]);
 
-    const { cityName, emoji, date, notes} = currentCity;
+  // ✅ If loading or no city loaded yet, show spinner
+  if (isLoading || !currentCity) return <Spinner />;
 
-    if(isLoading) return <Spinner />
+  // ✅ Safe destructuring after we confirm currentCity exists
+  const { cityName, emoji, date, notes } = currentCity;
 
   return (
     <div className={styles.city}>
@@ -37,7 +38,7 @@ function City() {
 
       <div className={styles.row}>
         <h6>You went to {cityName} on</h6>
-        <p>{formatDate(date || null)}</p>
+        <p>{date ? formatDate(date) : "Unknown date"}</p>
       </div>
 
       {notes && (
@@ -65,4 +66,4 @@ function City() {
   );
 }
 
-export default City
+export default City;

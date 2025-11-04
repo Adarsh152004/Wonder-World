@@ -15,8 +15,13 @@ function CityList() {
 
     return (
         <ul className={styles.cityList}>
-            {cities.map((city) => <CityItem city={city} key={city.id} />)}
-        </ul>
+            {cities
+                .filter(Boolean)
+                .map((city) => (
+                <CityItem city={city} key={city.id} />
+                ))}
+            </ul>
+
     )
 }
 

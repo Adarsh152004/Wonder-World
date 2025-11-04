@@ -12,6 +12,7 @@
     "server": "json-server --watch data/cities.json --port 9000"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.78.0",
     "country-flag-emoji-polyfill": "^0.1.8",
     "react": "^18.2.0",
     "react-datepicker": "^8.4.0",
