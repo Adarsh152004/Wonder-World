@@ -54,7 +54,7 @@ function Dashboard() {
                    {filteredCities.map((city) => (
                         <li key={city.id}>
                           {/* <Link className={`${styles.cityItem} ${city.id === currentCity.id ? styles["cityItem-active"] : ''}`} to={`${city.id}?lat=${city.position.lat}&lng=${city.position.lng}`}> */}
-                          <div className={`${styles.cityItem} ${city.id === currentCity.id ? styles["cityItem-active"] : ''}`}>
+                          <div className={`${styles.cityItem} ${currentCity && city.id === currentCity.id ? styles["cityItem-active"] : ''}`}>
                             <span className={styles.emoji}>{getFlag(city.emoji)}</span>
                             <h3 className={styles.name}>{city.cityName}</h3>
                             {/* <p className={styles.coords}>📍 {city.position.lat.toFixed(2)}, {city.position.lng.toFixed(2)}</p> */}
